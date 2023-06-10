@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+</head>
+<body>
+  <h2>Sign Up</h2>
+  <form id="signupForm">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    <label for="pwd">Password:</label><br>
+    <input type="password" id="pwd" name="password" required><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      window.location.href = 'dashboard.html'; 
+    });
+  </script>
+
+</body>
+</html>
