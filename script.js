@@ -5,8 +5,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value;
     const message = document.getElementById('message');
   
-    if(username === "user" && password === "pass") {
-      // Ideally, redirect to another page or update the UI to reflect successful login
+    if(username === "nehal" && password === "pass") {
+    
       window.location.href = "dashboard.html";
     } else {
       message.innerText = "Invalid username or password!";
