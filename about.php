@@ -1,51 +1,94 @@
+<?php
+
+include 'components/connect.php';
+
+session_start();
+
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+};
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>About</title>
 
-<?php include("vendor/inc/head.php");?>
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="css/style.css">
 
+</head>
 <body>
+   
 
-  
-  <?php include("vendor/inc/nav.php");?>
 
-  
-  <div class="container">
+<div class="heading">
+   <h3>About us</h3>
+   <p><a href="home.php">Home</a> <span> / about</span></p>
+</div>
 
-    
-    <h1 class="mt-4 mb-3">About
-    </h1>
 
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="index.php">Home</a>
-      </li>
-      <li class="breadcrumb-item active">About</li>
-    </ol>
 
-    
-    <div class="row">
-      <div class="col-lg-6">
-        <img class="img-fluid rounded mb-5" src="vendor/img/placeholder-1.jpg" alt="">
+<section class="about">
+
+   <div class="row">
+
+      <div class="image">
+         <img src="images/about-img.jpg" alt="">
       </div>
-      <div class="col-lg-6">
-        <h2>About Us</h2>
-        <p>
-        The Vehicle Booking System was developed as a solution to common transportation issues. Task allocation, vehicle tracking, route assignment, payment, booking order, delivery report, and report generation are only some of the transport industry's biggest challenges.The time and money needed for processing transactions, staff overwork, product and user safety, and vehicle upkeep and repair.Major issues that can be addressed by the Vehicle Booking System include task allocation (a GPRS will be installed in all vehicles and cabs, allowing for easy tracking of each vehicle and cab) and financial reporting (the system will ensure that all payments are processed via credit card or pay bill, eliminating the need for manual record-keeping). The system will be able to see which cars have duties to do and which do not, as well as data about each client who has reserved a vehicle.
 
-        </p>
+      <div class="content">
+         <h3>why choose us?</h3>
+         <p>Choose MARRIOT for culinary excellence. Our diverse menu features exquisite flavors using the finest ingredients. Experience unforgettable dining with us today.</p>
+         
       </div>
-    </div>
-    <!-- /.row -->
-  </div>
-  <!-- /.container -->
 
-  <!-- Footer -->
-<?php include("vendor/inc/footer.php");?>
+   </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</section>
+
+
+
+<section class="steps">
+
+   <h1 class="title">Simple Process</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <img src="images/step-1.png" alt="">
+         <h3>Choose order</h3>
+         <p>Discover MARRIOT, an inviting  gem. Indulge in our exquisite  impeccable service, and captivating ambience. Book your table now for an unforgettable dining experience.</p>
+      </div>
+
+      <div class="box">
+         <img src="images/step-2.png" alt="">
+         <h3>Fast delivery</h3>
+         <p>Experience lightning-fast delivery with MARRIOT. Savor our delectable from the comfort of your home. Order now for a quick and satisfying dining experience.</p>
+      </div>
+
+      <div class="box">
+         <img src="images/step-3.png" alt="">
+         <h3>Enjoy food</h3>
+         <p>Savor the delectable flavors at MARRIOT. Indulge in mouthwatering cuisine that will delight your taste buds and leave you craving for more. Experience culinary bliss today.</p>
+      </div>
+
+   </div>
+
+</section>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+
+<script src="js/script.js"></script>
+
+
 
 </body>
-
 </html>
