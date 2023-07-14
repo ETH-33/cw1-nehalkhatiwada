@@ -10,7 +10,7 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-
+include 'components/add_cart.php';
 
 ?>
 
@@ -27,7 +27,7 @@ if(isset($_SESSION['user_id'])){
    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+<?php include 'components/user_header.php'; ?>
 <section class="hero">
 
    <div class="swiper hero-slider">
@@ -77,7 +77,7 @@ if(isset($_SESSION['user_id'])){
 
 <section class="category">
 
-   <h1 class="title">Food category</h1>
+   <h1 class="title">Meals Category</h1>
 
    <div class="box-container">
 
@@ -88,7 +88,7 @@ if(isset($_SESSION['user_id'])){
 
       <a href="category.php?category=main dish" class="box">
          <img src="images/cat-2.png" alt="">
-         <h3>Main Course</h3>
+         <h3>Main Dish</h3>
       </a>
 
       <a href="category.php?category=drinks" class="box">
@@ -101,17 +101,18 @@ if(isset($_SESSION['user_id'])){
    </div>
 
 </section>
-
-
-
-
 <section class="products">
 
-   <h1 class="title">latest Meals</h1>
+   <h1 class="title">Foods Available</h1>
 
    <div class="box-container">
 
-      
+      <?php
+         $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 6");
+         $select_products->execute();
+         if($select_products->rowCount() > 0){
+            while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){
+      ?>
       <form action="" method="post" class="box">
          <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
          <input type="hidden" name="name" value="<?= $fetch_products['name']; ?>">
@@ -127,12 +128,17 @@ if(isset($_SESSION['user_id'])){
             <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
          </div>
       </form>
-     
+      <?php
+            }
+         }else{
+            echo '<p class="empty">no products added yet!</p>';
+         }
+      ?>
 
    </div>
 
    <div class="more-btn">
-      <a href="menu.php" class="btn">veiw all</a>
+      <a href="menu.php" class="btn">See All</a>
    </div>
 
 </section>
@@ -140,10 +146,7 @@ if(isset($_SESSION['user_id'])){
 
 
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
-
 <script src="js/script.js"></script>
-
 <script>
 
 var swiper = new Swiper(".hero-slider", {
@@ -157,6 +160,5 @@ var swiper = new Swiper(".hero-slider", {
 });
 
 </script>
-
 </body>
 </html>
