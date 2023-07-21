@@ -128,10 +128,10 @@ if(isset($_POST['submit'])){
          <option value="" disabled selected>Select payment method ------</option>
          <option value="cash on delivery">cash on delivery</option>
          <option value="credit card">Card</option>
-         <option value="paytm">E-sewa</option>
-         <option value="paypal">Khalti</option>
-         <option value="paypal">Connect-ips</option>
-         <option value="paypal">Prabhu-pay</option>
+         <option value="E-sewa">E-sewa</option>
+         <option value="Khalti">Khalti</option>
+         <option value="Connect-ips">Connect-ips</option>
+         <option value="Prabhu-pay">Prabhu-pay</option>
       </select>
       <input type="submit" value="place order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
    </div>
