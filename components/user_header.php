@@ -38,7 +38,12 @@ if(isset($message)){
       </div>
 
       <div class="profile">
-         
+         <?php
+            $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+            $select_profile->execute([$user_id]);
+            if($select_profile->rowCount() > 0){
+               $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+         ?>
          <p class="name"><?= $fetch_profile['name']; ?></p>
          <div class="flex">
             <a href="profile.php" class="btn">profile</a>
@@ -48,7 +53,14 @@ if(isset($message)){
             <a href="login.php">login</a> or
             <a href="register.php">Register</a>
          </p> 
-         
+         <?php
+            }else{
+         ?>
+            <p class="name">Login First!</p>
+            <a href="login.php" class="btn">Login</a>
+         <?php
+          }
+         ?>
       </div>
 
    </section>
