@@ -46,7 +46,12 @@ if(isset($_GET['delete'])){
 
    <div class="box-container">
 
-   
+   <?php
+      $select_messages = $conn->prepare("SELECT * FROM `messages`");
+      $select_messages->execute();
+      if($select_messages->rowCount() > 0){
+         while($fetch_messages = $select_messages->fetch(PDO::FETCH_ASSOC)){
+   ?>
    <div class="box">
       <p> name : <span><?= $fetch_messages['name']; ?></span> </p>
       <p> number : <span><?= $fetch_messages['number']; ?></span> </p>
@@ -55,8 +60,8 @@ if(isset($_GET['delete'])){
       <a href="messages.php?delete=<?= $fetch_messages['id']; ?>" class="delete-btn" onclick="return confirm('delete this message?');">delete</a>
    </div>
    <?php
-         
-      else{
+         }
+      }else{
          echo '<p class="empty">you have no messages</p>';
       }
    ?>
